@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20130126024530) do
 
   create_table "snippets", :force => true do |t|
     t.string   "language",         :null => false
-    t.string   "plain_code",       :null => false
-    t.string   "highlighted_code"
+    t.text     "plain_code"
+    t.text     "highlighted_code"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
