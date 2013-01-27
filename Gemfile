@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'jquery-rails'
+gem 'pygments.rb'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -15,6 +16,9 @@ group :production do
 end
 
 group :development do
+  gem 'pry-rails'
+  gem 'awesome_print'
+  gem 'meta_request'
   gem 'capistrano'
   gem 'sqlite3'
 end

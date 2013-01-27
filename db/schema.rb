@@ -11,14 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126024530) do
+ActiveRecord::Schema.define(:version => 20130126182917) do
+
+  create_table "languages", :force => true do |t|
+    t.string   "name",                          :null => false
+    t.string   "title",                         :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "snippets_count", :default => 0
+  end
 
   create_table "snippets", :force => true do |t|
-    t.string   "language",         :null => false
-    t.text     "plain_code"
-    t.text     "highlighted_code"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "name",        :null => false
+    t.text     "code",        :null => false
+    t.integer  "language_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  add_index "snippets", ["language_id"], :name => "index_snippets_on_language_id"
 
 end

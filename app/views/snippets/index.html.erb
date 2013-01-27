@@ -1,17 +1,11 @@
+<h1>Snippets</h1>
+
+
 <% @snippets.each do |snippet| %>
-  <p>
-    <strong>Language:</strong>
-    <%= snippet.language.titleize %>
-  </p>
-  <div class="code_block">
-    <% if snippet.highlighted_code.present? %>
-    <%= raw snippet.highlighted_code %>
-    <% else %>
-    <pre><%= snippet.plain_code %></pre>
-    <% end %>
+  <div class="snippet">
+    <%= link_to snippet.name, snippet %>
   </div>
 <% end %>
 
-<p>
-  <%= link_to "New Snippet", new_snippet_path %>
-</p>
+
+<p><%= link_to 'New Snippet', new_snippet_path, class: "btn" %></p>

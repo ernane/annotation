@@ -2,12 +2,17 @@ html, body {
   background-color: #f8f8f8;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  margin: 0;
 }
 
-a {
-  color: #0000FF;
-  img { border: none; }
+a img {
+  border: none;
 }
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:none;}
 
 .clear {
   clear: both;
@@ -16,30 +21,54 @@ a {
 }
 
 #container {
-  width: 80%;
+  max-width: 50%;
   margin: 0 auto;
   background-color: #FFF;
   padding: 20px 40px;
-  border: 1px solid #CACACA;
-  margin-top: 20px;
+  border: 1px solid #CCC;
+  margin-top: 70px;
 }
 
-#flash_notice, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
+#flash_notice, #flash_error, #flash_alert, #flash_info {
+  font-weight: bold;
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:-1;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
 }
 
 #flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+  background: #CFC;
+  color: #264409;
+  border-bottom: solid 1px #C6D880;
+}
+
+#flash_error{
+  background: #FBE3E4;
+  color: #8A1F11;
+  border-bottom: solid 1px #C66;
 }
 
 #flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
+  background: #FFF6BF;
+  color: #514721;
+  border-bottom: solid 1px #FFD324;
 }
 
-.error_messages, #error_explanation {
+#flash_info {
+  background: #D5EDF8;
+  color: #205791;
+  border-bottom: solid 1px #92CAE4;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.error_messages {
   width: 400px;
   border: 2px solid #CF0000;
   padding: 0px;
@@ -47,25 +76,34 @@ a {
   margin-bottom: 20px;
   background-color: #f0f0f0;
   font-size: 12px;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 10px;
-    font-size: 12px;
-    margin: 0;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  p { margin: 8px 10px; }
-  ul { margin-bottom: 0; }
 }
 
-.field_with_errors {
-  display: inline;
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin-bottom: 0;
 }
 
 form .field, form .actions {
   margin: 12px 0;
+}
+
+pre {
+  background-color: #F3F3F3;
+  border: solid 1px #CCC;
+  padding: 5px 10px;
+  font-family: 'Menlo', 'Courier New', 'Terminal', monospace;
+  overflow: auto;
 }
