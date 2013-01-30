@@ -1,6 +1,6 @@
 class SnippetsController < ApplicationController
   def index
-    @snippets = Snippet.all
+    @snippets = current_user.snippets if current_user
   end
 
   def show
@@ -12,7 +12,7 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    @snippet = Snippet.new(params[:snippet])
+    @snippet = current_user.snippets.create(params[:snippet])
     if @snippet.save
       redirect_to @snippet, notice: "Snippet was successfully created."
     else

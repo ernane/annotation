@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127115848) do
+ActiveRecord::Schema.define(:version => 20130128231543) do
 
   create_table "languages", :force => true do |t|
     t.string   "name",                          :null => false
@@ -27,16 +27,20 @@ ActiveRecord::Schema.define(:version => 20130127115848) do
     t.integer  "language_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   add_index "snippets", ["language_id"], :name => "index_snippets_on_language_id"
+  add_index "snippets", ["user_id"], :name => "index_snippets_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "snippets_count",  :default => 0
+    t.string   "auth_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

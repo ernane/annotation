@@ -1,10 +1,12 @@
 <h1>Snippets</h1>
 
 
-<% @snippets.each do |snippet| %>
-  <div class="snippet">
-    <%= link_to snippet.name, snippet %>
-  </div>
+<% if current_user %>
+  <% @snippets.each do |snippet| %>
+    <div class="snippet">
+      <%= link_to snippet.name, snippet %>
+    </div>
+  <% end %>
 <% end %>
 
 
